@@ -11,8 +11,10 @@ enum class BorderType { Single, Double, None};
 enum class Color { Red, Blue, Green, Purple, Teal, Yellow, White, Black, Orange, Cyan };
 
 
-class CONTROL {
-	static int a;
+class CONTROL{
+
+private:
+	
 protected:
 	HANDLE _console;
 	HANDLE _hstdin;
@@ -21,25 +23,24 @@ protected:
 	Color _foreground;
 	COORD _size;
 	COORD _location;
-	static CONTROL * CONTROL::SOMETHING;
 	void updateConsoleAttributes();
+	static  CONTROL * CONTROL::SOMETHING;
+	
 public:
 	
 	virtual	void MoveTo(int, int) = 0;
 	virtual void Show() = 0;
 	virtual void Hide()= 0 ;
 	
-	virtual void SetForegroundColor(Color);
-	virtual void SetBackgroundColor(Color);
-	virtual void SetBorder(BorderType);
-	virtual void SetSize(COORD);
-	virtual void SetLocation(COORD);
-	CONTROL& CONTROL::GetFocus();
-	
-//	CONTROL& CONTROL::GetFocus();
-	//void CONTROL::SetFocus(CONTROL);
-	void CONTROL::Handle(INPUT_RECORD *inpt, int i);
+	 void SetForegroundColor(Color);
+	 void SetBackgroundColor(Color);
+	 void SetBorder(BorderType);
+	 void SetSize(COORD);
+	 void SetLocation(COORD);
+	static CONTROL* GetFocus();
+	static void setFocus(CONTROL& ct);
 	CONTROL(){};
+	void CONTROL::Handle(INPUT_RECORD *inpt, int i);
 	CONTROL(HANDLE _console, HANDLE _hstdin, BorderType frame, Color bc, Color fc, COORD size, COORD location);
 };
 

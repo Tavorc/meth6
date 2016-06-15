@@ -3,19 +3,21 @@
 #define __LABEL_H_INCLUDED__   //   #define this so the compiler knows it has been included
 
 #include <windows.h>
-#include "Component.h"
+#include "Control.h"
 using namespace std;
 
 
-class LABEL: COMPONENT{
+class LABEL: CONTROL{
 protected:
 	
 public:
 	 void Show();
 	 void Hide();
-	 void SetForegroundColor(ForegroundColor);
-	 void SetBackgroundColor(BackgroundColor);
+	 void SetForegroundColor(Color);
+	 void SetBackgroundColor(Color);
 	 void SetBorder(BorderType);
+	 void MoveTo(int, int);
+	 LABEL(){}
 };
 
 #endif 

@@ -1,4 +1,5 @@
 #include "Control.h"
+#include "Label.h"
 
 CONTROL::CONTROL(HANDLE console, HANDLE hstdin, BorderType frame, Color bc, Color fc, COORD size, COORD location){
 	this->_frame = frame;
@@ -10,11 +11,12 @@ CONTROL::CONTROL(HANDLE console, HANDLE hstdin, BorderType frame, Color bc, Colo
 	this->_hstdin = hstdin;
 	updateConsoleAttributes();
 }
-
-
-CONTROL& CONTROL::GetFocus(){
-	this->SOMETHING = NULL;
-	return *(CONTROL::SOMETHING);
+CONTROL* CONTROL::SOMETHING= NULL;
+void CONTROL::setFocus(CONTROL& ct){
+	SOMETHING = &ct;
+}
+CONTROL* CONTROL::GetFocus(){
+	return (CONTROL::SOMETHING);
 }
 
 void  CONTROL::Show(){
@@ -22,11 +24,7 @@ void  CONTROL::Show(){
 void  CONTROL::Hide(){
 }
 
-/*
-void CONTROL::SetFocus(int _control){
-	CONTROL::a = _control;
-}
-*/
+
 void CONTROL::SetForegroundColor(Color fc)
 {
 	this->_foreground = fc;
