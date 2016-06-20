@@ -1,14 +1,12 @@
 #include "Control.h"
 #include "Label.h"
 
-CONTROL::CONTROL(HANDLE console, HANDLE hstdin, BorderType frame, Color bc, Color fc, COORD size, COORD location){
+CONTROL::CONTROL(HANDLE console,  BorderType frame, Color bc, Color fc, COORD size){
 	this->_frame = frame;
 	this->_background = bc;
 	this->_foreground = fc;
 	this->_size = size;
-	this->_location = location;
 	this->_console = console;
-	this->_hstdin = hstdin;
 	updateConsoleAttributes();
 }
 CONTROL* CONTROL::SOMETHING= NULL;
@@ -45,9 +43,6 @@ void CONTROL::MoveTo(int x, int y)
 void CONTROL:: SetSize(COORD sz){
 	this->_size = sz;
 }
-void CONTROL::SetLocation(COORD loc){
-	this->_location = loc;
-}
 void CONTROL::updateConsoleAttributes()
 {
 	DWORD attributes = 0;
@@ -80,6 +75,7 @@ void CONTROL::updateConsoleAttributes()
 }
 
 // Handle and events
+/*
 void CONTROL::Handle(INPUT_RECORD *inpt, int i){
 	switch (inpt[i].EventType)
 	{
@@ -110,3 +106,4 @@ void CONTROL::Handle(INPUT_RECORD *inpt, int i){
 	}
 	}
 }
+*/

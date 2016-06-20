@@ -23,6 +23,6 @@ public:
 	ENGINE();
 	void Add(CONTROL*);
 	void Run();
-	void Handle(INPUT_RECORD *inpt, int i);
+	void Handle(INPUT_RECORD *inpt);
 };
 #endif

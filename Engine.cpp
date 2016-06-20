@@ -39,11 +39,18 @@ void ENGINE::Run(){
 			switch (irInBuf[i].EventType)
 			{
 			case KEY_EVENT: // keyboard input 	
-			case MOUSE_EVENT: // mouse input 				
-				for (CONTROL*n : comps) {
-					n->Handle(irInBuf, i);
-				}
-				Handle(irInBuf, i); // asign form
+			{
+								
+					for (CONTROL*n : comps) {
+						
+						n->Handle(irInBuf);
+					}
+					break;
+			}
+			case MOUSE_EVENT: // mouse input 
+
+				
+			//	Handle(irInBuf, i); // asign form
 				break;
 
 			case WINDOW_BUFFER_SIZE_EVENT: // scrn buf. resizing 
@@ -87,7 +94,7 @@ VOID ENGINE::ErrorExit(LPSTR lpszMessage)
 }
 
 // Handle and events
-void ENGINE::Handle(INPUT_RECORD *inpt, int i){
+void ENGINE::Handle(INPUT_RECORD *inpt){
 	switch (inpt[i].EventType)
 	{
 	case KEY_EVENT: // keyboard input 

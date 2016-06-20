@@ -11,13 +11,14 @@ class LABEL: CONTROL{
 protected:
 	
 public:
-	 void Show();
-	 void Hide();
 	 void SetForegroundColor(Color);
 	 void SetBackgroundColor(Color);
 	 void SetBorder(BorderType);
 	 void MoveTo(int, int);
-	 LABEL(){}
+	 void Show();
+	 void Hide();
+	 void LABEL::Handle(INPUT_RECORD *inpt);
+	 LABEL();
 };
 
 #endif 
