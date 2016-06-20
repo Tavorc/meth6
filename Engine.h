@@ -6,7 +6,7 @@
 
 #include "Control.h"
 #include <vector>
-
+#include "Graphics.h"
 class ENGINE {
 	HANDLE hStdin;
 	DWORD fdwSaveOldMode;
@@ -18,11 +18,12 @@ class ENGINE {
 	vector<CONTROL*> comps;
 	int currentComponnent = 0;
 	bool NextEditableComponent(int start);
-
+	Graphics _graphics;
 public:
 	ENGINE();
 	void Add(CONTROL*);
 	void Run();
 	void Handle(INPUT_RECORD *inpt);
+	void run(CONTROL &c);
 };
 #endif

@@ -72,6 +72,19 @@ void ENGINE::Run(){
 	SetConsoleMode(hStdin, fdwSaveOldMode);
 }
 
+/*void ENGINE::run(CONTROL &c){
+	for (;;){
+		_graphics.clearScreen();
+		_graphics.setCursorVisibility(false);
+		c.draw(_graphics, 0, 0);
+		ReadConsoleInput(_console, &record, 1, &count);
+		if (type == KEY_EVENT && Control::getFocus() != nullptr && isKeyDown)
+			CONTROL::getFocus()->keyDown(code, chr);
+		if (type == MOUSE_EVENT && button == "LEFT" || button == "RIGHT")
+			c.mousePressed(x, y, button == FROM_LEFT_1ST_BUTTON_PRESSED);
+	}
+}*/
+
 
 
 bool ENGINE::NextEditableComponent(int start){

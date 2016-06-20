@@ -15,30 +15,20 @@ class CONTROL{
 private:
 	
 protected:
-	HANDLE _console;
-	BorderType _frame;
-	Color _background;
-	Color _foreground;
-	COORD _size;
+	COORD _width;
 	void updateConsoleAttributes();
 	static  CONTROL * CONTROL::SOMETHING;
 	
 public:
-	
-	virtual	void MoveTo(int, int);// = 0;
 	virtual void Show();// = 0;
 	virtual void Hide();
-	
-	void SetForegroundColor(Color);
-	void SetBackgroundColor(Color);
-	void SetBorder(BorderType);
 	void SetSize(COORD);
 	void SetLocation(COORD);
 	static CONTROL* GetFocus();
 	static void setFocus(CONTROL& ct);
 	CONTROL(){};
 	virtual void CONTROL::Handle(INPUT_RECORD *inpt) = 0;
-	CONTROL(HANDLE _console, BorderType frame, Color bc, Color fc, COORD size);
+	CONTROL(HANDLE _console, COORD size);
 };
 
 #endif a

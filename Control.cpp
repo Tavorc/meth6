@@ -1,10 +1,7 @@
 #include "Control.h"
 #include "Label.h"
 
-CONTROL::CONTROL(HANDLE console,  BorderType frame, Color bc, Color fc, COORD size){
-	this->_frame = frame;
-	this->_background = bc;
-	this->_foreground = fc;
+CONTROL::CONTROL(HANDLE console, COORD size){
 	this->_size = size;
 	this->_console = console;
 	updateConsoleAttributes();
@@ -23,7 +20,7 @@ void  CONTROL::Hide(){
 }
 
 
-void CONTROL::SetForegroundColor(Color fc)
+/*void CONTROL::SetForegroundColor(Color fc)
 {
 	this->_foreground = fc;
 }
@@ -32,7 +29,7 @@ void CONTROL::SetBackgroundColor(Color bc){
 }
 void CONTROL::SetBorder(BorderType frame){
 	this->_frame = frame;
-}
+}*/
 void CONTROL::MoveTo(int x, int y)
 {
 	COORD c;
