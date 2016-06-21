@@ -15,7 +15,11 @@ class CONTROL{
 private:
 	
 protected:
+	HANDLE _console;
+	COORD _size;
 	COORD _width;
+	Color _background;
+	Color _foreground;
 	void updateConsoleAttributes();
 	static  CONTROL * CONTROL::SOMETHING;
 	
@@ -29,6 +33,8 @@ public:
 	CONTROL(){};
 	virtual void CONTROL::Handle(INPUT_RECORD *inpt) = 0;
 	CONTROL(HANDLE _console, COORD size);
+
+	void CONTROL::MoveTo(int x, int y);
 };
 
 #endif a
