@@ -1,17 +1,13 @@
 #include <windows.h>
 #include <stdio.h>
-
-#include "Engine.h"
-#include "Label.h"
+#include "EventEngine.h"
 
 
 int main(VOID)
 {
-	
-	ENGINE *e = new ENGINE();
-	LABEL *l = new LABEL();
-	e->Add((CONTROL*)l);
-	e->Run();
+	EventEngine * engine = new	EventEngine();
+	CONTROL * control = new CONTROL();
+	engine->run(*control);
 	return 0;
 }
 

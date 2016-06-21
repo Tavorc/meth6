@@ -5,36 +5,29 @@
 
 #include <windows.h>
 #include <iostream>
+#include "Graphics.h"
+#include <vector>
 using namespace std;
 
 enum class BorderType { Single, Double, None};
-enum class Color { Red, Blue, Green, Purple, Teal, Yellow, White, Black, Orange, Cyan };
 
 class CONTROL{
-
 private:
 	
 protected:
-	HANDLE _console;
-	COORD _size;
-	COORD _width;
-	Color _background;
-	Color _foreground;
-	void updateConsoleAttributes();
-	static  CONTROL * CONTROL::SOMETHING;
-	
+	static CONTROL * focus;
+	COORD _position;
 public:
-	virtual void Show();// = 0;
-	virtual void Hide();
-	void SetSize(COORD);
-	void SetLocation(COORD);
-	static CONTROL* GetFocus();
-	static void setFocus(CONTROL& ct);
-	CONTROL(){};
-	virtual void CONTROL::Handle(INPUT_RECORD *inpt) = 0;
-	CONTROL(HANDLE _console, COORD size);
-
-	void CONTROL::MoveTo(int x, int y);
+	CONTROL();
+	void mousePressed(int, int, unsigned long);
+	void keyDown(unsigned short,char);
+	void getAllControls(vector<CONTROL*>*);
+	static CONTROL*  getFocus();
+	static void setFocus(CONTROL);
+	bool canGetFocus();
+	void draw(Graphics, int, int, size_t);
+	int getLeft();
+	int getTop();
 };
 
 #endif a
