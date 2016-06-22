@@ -1,6 +1,7 @@
 #include "Control.h"
 
-CONTROL::CONTROL(){
+CONTROL::CONTROL(string name){
+	this->name = name;
 }
 
  CONTROL*  CONTROL::getFocus(){
@@ -19,7 +20,8 @@ void CONTROL::getAllControls(vector<CONTROL*>*){
 bool CONTROL::canGetFocus(){
 	return false;
 }
-void CONTROL::draw(Graphics, int, int, size_t){
+void CONTROL::draw(Graphics graphics, int x, int y, size_t t){
+	graphics.write(this->name);
 }
 int CONTROL::getLeft(){
 	return 0;

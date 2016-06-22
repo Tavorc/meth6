@@ -17,8 +17,9 @@ private:
 protected:
 	static CONTROL * focus;
 	COORD _position;
+	string name;
 public:
-	CONTROL();
+	CONTROL(string name);
 	void mousePressed(int, int, unsigned long);
 	void keyDown(unsigned short,char);
 	void getAllControls(vector<CONTROL*>*);
