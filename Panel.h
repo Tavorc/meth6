@@ -5,13 +5,15 @@
 
 class Panel : public CONTROL
 {
+private:
 protected:
 	vector<CONTROL*> controls;
 public:
-	Panel(string);
+	Panel(string, int, int, int, int);
 	virtual ~Panel();
 	void AddControl(CONTROL&);
-	//void RemoveControl(CONTROL&); 
-	
+	void draw(Graphics, int, int, size_t);
+	void mousePressed(int, int, unsigned long);
+	void keyDown(unsigned short, char);
 private:
 };

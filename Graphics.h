@@ -23,7 +23,6 @@ public:
 private:
 	HANDLE _console;
 	Color _background, _foreground;
-
 	void updateConsoleAttributes();
 };
 

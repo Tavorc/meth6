@@ -13,7 +13,7 @@ public:
 	virtual ~EventEngine();
 private:
 	void moveFocus(CONTROL &main, CONTROL *focused);
-
+	void setFocusByPosition(vector<CONTROL*> &vc, int, int);
 	Graphics _graphics;
 	HANDLE _console;
 	DWORD _consoleMode;

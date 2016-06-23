@@ -16,7 +16,7 @@ void EventEngine::run(CONTROL &c)
 			_graphics.clearScreen();
 			_graphics.setCursorVisibility(false);
 			for (size_t p = 0; p < 5; ++p)
-				c.draw(_graphics, 0, 0, p);
+				c.draw(_graphics,0,0, p);
 			redraw = false;
 		}
 
@@ -29,7 +29,7 @@ void EventEngine::run(CONTROL &c)
 		{
 			auto f = CONTROL::getFocus();
 			if (f != nullptr && record.Event.KeyEvent.bKeyDown)
-			{
+			{	
 				auto code = record.Event.KeyEvent.wVirtualKeyCode;
 				auto chr = record.Event.KeyEvent.uChar.AsciiChar;
 				if (code == VK_TAB)
@@ -47,7 +47,10 @@ void EventEngine::run(CONTROL &c)
 			auto x = coord.X - c.getLeft();
 			auto y = coord.Y - c.getTop();
 			if (button == FROM_LEFT_1ST_BUTTON_PRESSED || button == RIGHTMOST_BUTTON_PRESSED)
-			{
+			{	
+				vector<CONTROL*> controls;
+				c.getAllControls(&controls);				
+				setFocusByPosition(controls, x, y);
 				c.mousePressed(x, y, button == FROM_LEFT_1ST_BUTTON_PRESSED);
 				redraw = true;
 			}
@@ -62,6 +65,25 @@ void EventEngine::run(CONTROL &c)
 EventEngine::~EventEngine()
 {
 	SetConsoleMode(_console, _consoleMode);
+}
+
+// Finds control on the given position and sets the focus on it.
+void EventEngine::setFocusByPosition(vector<CONTROL*> &vc, int x, int y){
+	bool found = false;
+	for (int i = 4; i >= 0; i--){
+		int vc_size = vc.size();
+		for (int j = vc_size-1; j >= 0; j--) {
+			if (vc[j]->isClicked(x,y)){
+				if (vc[j]->canGetFocus()){
+					CONTROL::setFocus(*vc[j]);
+					found = true;
+					break;
+				}
+			}
+		}
+		if (found)
+			break;
+	}
 }
 
 void EventEngine::moveFocus(CONTROL &main, CONTROL *focused)
