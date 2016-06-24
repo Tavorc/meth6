@@ -3,19 +3,29 @@
 #include "EventEngine.h"
 #include "Panel.h"
 #include "TextBox.h"
+#include "Form.h"
+
+using namespace System;
 
 int main(VOID)
 {
 	EventEngine * engine = new	EventEngine();
-	CONTROL * main = new Panel("Main",0,0,50,20);
+	// main panel creation
+	CONTROL * main = new Form(); 
+	// panel creation
 	CONTROL * p1 = new Panel("Panel-1",10,4,30,15);
+	//  tb creations
 	CONTROL * tb1 = new TextBox("tb1", 15, 2, 10, 5);
-	CONTROL::setFocus(*tb1);
 	CONTROL * tb2 = new TextBox("tb2", 5, 2, 10, 5);
-	CONTROL * tb3 = new TextBox("tb3", 5, 2, 10, 5);
+	CONTROL * tb3 = new TextBox("tb3", 15, 2, 10, 5);
+	// set focus on tb1 
+	CONTROL::setFocus(*tb1);
+	// assign p1 to the form
 	((Panel*)main)->AddControl(*p1);
-	((Panel*)p1)->AddControl(*tb3);
-
+	// assign  tb1 to p1
+	((Panel*)p1)->AddControl(*tb1); 
+	((Panel*)p1)->AddControl(*tb2);
+	//((Panel*)p1)->AddControl(*tb3); // tb3 won't be shown	
 	engine->run(*main);
 	return 0;
 }

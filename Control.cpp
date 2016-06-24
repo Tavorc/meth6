@@ -4,7 +4,7 @@ CONTROL* CONTROL::focus = 0;
 vector<CONTROL*> CONTROL::controlsList;
 
 CONTROL::CONTROL(string str, int x, int y, int width, int height){
-	this->name = str;
+	this->value = str;
 	this->_position.X = x;
 	this->_position.Y = y;
 	this->_size.X = width;
@@ -13,12 +13,12 @@ CONTROL::CONTROL(string str, int x, int y, int width, int height){
 	this->bc = Color::Red;
 	this->fc = Color::Green;
 	this->controlsList.push_back(this);
-	this->z_index = 0;
+	this->z_index = -1;
 }
 CONTROL::~CONTROL(){
 }
-string CONTROL::getName(){
-	return this->name;
+string CONTROL::getValue(){
+	return this->value;
 }
 CONTROL*  CONTROL::getFocus(){
 	return focus;
@@ -62,6 +62,7 @@ bool CONTROL::isClicked(int x, int y){
 	}
 	return false;
 }
+
 // Gets the panel that contains this control
 CONTROL& CONTROL::GetParent(){
 	return *this->parent;

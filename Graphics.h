@@ -20,6 +20,8 @@ public:
 	void write(wstring s);
 	void write(int x, int y, wstring s);
 	void setCursorVisibility(bool isVisible);
+	int getScreenHeight();
+	int getScreenWidth();
 private:
 	HANDLE _console;
 	Color _background, _foreground;

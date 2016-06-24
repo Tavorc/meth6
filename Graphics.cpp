@@ -24,6 +24,20 @@ void Graphics::moveTo(int x, int y)
 	SetConsoleCursorPosition(_console, c);
 }
 
+int Graphics::getScreenHeight(){
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(_console, &csbi);
+	auto size = csbi.dwSize.Y;
+	return size;
+}
+
+int Graphics::getScreenWidth(){
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(_console, &csbi);
+	auto size = csbi.dwSize.Y;
+	return size;
+}
+
 void Graphics::setBackground(Color color)
 {
 	_background = color;

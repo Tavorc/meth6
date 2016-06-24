@@ -7,7 +7,6 @@ class TextBox : public CONTROL
 {
 private:
 protected:
-	vector<CONTROL*> controls;
 public:
 	TextBox(string, int, int, int, int);
 	virtual ~TextBox();

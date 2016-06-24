@@ -24,7 +24,7 @@ void Panel::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 		// init position
 		graphics.moveTo(xAbs + 1, yAbs + 1);
 		// draw control content
-		graphics.write(this->name);
+		graphics.write(this->value);
 	}
 	// Draw panels children
 	for (CONTROL *c : this->controlsList) {
@@ -40,7 +40,7 @@ void Panel::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 			// init position
 			graphics.moveTo(xAbs + 1, yAbs + 1);
 			// draw control content
-			graphics.write(c->getName());
+			graphics.write(c->getValue());
 		}
 	}
 	

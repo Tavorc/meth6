@@ -20,12 +20,12 @@ protected:
 	CONTROL * parent;
 	COORD _position;
 	COORD _size;
-	string name;
+	string value;
 	BorderType bt;
 	Color bc;
 	Color fc;
 	Graphics  graphics;
-	int z_index; // indicates the level of layer
+	int z_index; 
 	void setZIndex(int);
 public:
 	CONTROL(string, int, int, int, int);
@@ -40,8 +40,7 @@ public:
 	virtual void drawFrame(Graphics, int, int);
 	virtual int getLeft();
 	virtual int getTop();
-	string getName();
-	void setGraphics();
+	string getValue();
 	int getZIndex();
 	void setPosition(int, int);
 	int getWidth();
@@ -50,16 +49,11 @@ public:
 	void SetForeground(Color);
 	void SetBackground(Color);
 	void SetBorder(BorderType);
+	void setGraphics();
 	CONTROL& GetParent();
 	void SetParent(CONTROL&);
 	bool CONTROL::isClicked(int,int);
 };
 
-/*
-TODO
-
-- Remove name member
-
-*/
 
 #endif a

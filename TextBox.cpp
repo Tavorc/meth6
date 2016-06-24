@@ -6,6 +6,7 @@ TextBox::~TextBox(){
 TextBox::TextBox(string str, int x, int y, int width, int height) :CONTROL(str, x, y, width, height) {
 	this->bc = Color::Blue;
 	this->fc = Color::Orange;
+	this->bt = BorderType::Single;
 }
 
 bool TextBox::canGetFocus(){
@@ -32,7 +33,7 @@ void TextBox::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 	// init position
 	graphics.moveTo(xAbs + 1, yAbs + 1);
 	// draw control content
-	graphics.write(this->name);
+	graphics.write(this->value);
 }
 
 void TextBox::mousePressed(int x, int y, unsigned long button){
@@ -41,6 +42,6 @@ void TextBox::mousePressed(int x, int y, unsigned long button){
 
 void TextBox::keyDown(unsigned short code, char ch){
 	graphics.moveTo(this->_position.X + 2, this->_position.Y + 2);
-	this->name = string(1, ch);
+	this->value = string(1, ch);
 	graphics.write(string(1, ch));
 }
