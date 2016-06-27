@@ -5,7 +5,7 @@
 #include "TextBox.h"
 #include "Form.h"
 #include "NumericBox.h"
-
+#include "Graphics.h"
 using namespace System;
 
 int main(VOID)
@@ -16,8 +16,7 @@ int main(VOID)
 	// panel creation
 	CONTROL * p1 = new Panel("Panel-1",10,4,30,15);
 	//  tb creations
-	CONTROL * tb1 = new TextBox("tb1", 15, 2, 10, 5);
-	CONTROL * tb2 = new TextBox("tb2", 5, 2, 10, 5);
+	CONTROL * tb1 = new TextBox("", 7, 2, 20, 3);
 	//CONTROL * tb3 = new TextBox("tb3", 15, 2, 10, 5);
 
 	//naama's edit
@@ -30,7 +29,6 @@ int main(VOID)
 	((Panel*)main)->AddControl(*p1);
 	// assign  tb1 to p1
 	((Panel*)p1)->AddControl(*tb1); 
-	((Panel*)p1)->AddControl(*tb2);
 
 	//naama's edit
 	//((Panel*)p1)->AddControl(*numericBox);

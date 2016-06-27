@@ -53,6 +53,7 @@ public:
 	CONTROL& GetParent();
 	void SetParent(CONTROL&);
 	bool CONTROL::isClicked(int,int);
+
 };
 
 

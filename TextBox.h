@@ -5,7 +5,9 @@
 
 class TextBox : public CONTROL
 {
+
 private:
+	
 protected:
 public:
 	TextBox(string, int, int, int, int);
@@ -14,5 +16,16 @@ public:
 	void mousePressed(int, int, unsigned long);
 	void keyDown(unsigned short, char);
 	bool canGetFocus();
+	bool PutChar(char ch);
+	void PrintChar(char ch);
+	void MoveLeft();
+	void MoveRight();
+	void BackSpace();
+	void Clear();
+	void Delete();
+	void SetCursor(int x, int y);
+	
+	
+	
 private:
 };
