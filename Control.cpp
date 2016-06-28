@@ -32,7 +32,7 @@ CONTROL*  CONTROL::getFocus(){
 	return focus;
 }
 void CONTROL::setFocus(CONTROL&c){
-	focus = &c;
+	 focus = &c;
 }
 void CONTROL::mousePressed(int x, int y, unsigned long button){
 }
@@ -67,8 +67,8 @@ int CONTROL::getTop(){
 }
 // Determines whether the control is in the click area
 bool CONTROL::isClicked(int x, int y){
-	for (int i = this->_position.Y; i < this->_position.Y + this->_size.Y + 1; i++){
-		for (int j = this->_position.X; j < this->_position.X + this->_size.X + 1; j++){
+	for (int i = this->_position.Y; i < this->_position.Y + this->_size.Y + 1;i++){
+		for (int j = this->_position.X; j < this->_position.X + this->_size.X + 1;j++){
 			if (i == y && j == x){
 				return true;
 			}

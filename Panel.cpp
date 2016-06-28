@@ -31,8 +31,8 @@ void Panel::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 			c->draw(graphics, 0, 0, p);
 		}
 	}
+	
 
-	this->showCursorOnScreen();
 
 }
 

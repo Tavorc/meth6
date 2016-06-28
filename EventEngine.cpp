@@ -19,7 +19,7 @@ void EventEngine::run(CONTROL &c)
 				c.draw(_graphics,0,0, p);
 			redraw = false;
 		}
-		
+
 		INPUT_RECORD record;
 		DWORD count;
 		ReadConsoleInput(_console, &record, 1, &count);
@@ -51,7 +51,7 @@ void EventEngine::run(CONTROL &c)
 				vector<CONTROL*> controls;
 				c.getAllControls(&controls);				
 				setFocusByPosition(controls, x, y);
-				c.mousePressed(x, y, button == FROM_LEFT_1ST_BUTTON_PRESSED);
+				c.getFocus()->mousePressed(x, y, button == FROM_LEFT_1ST_BUTTON_PRESSED);
 				redraw = true;
 			}
 			break;
@@ -70,19 +70,15 @@ EventEngine::~EventEngine()
 // Finds control on the given position and sets the focus on it.
 void EventEngine::setFocusByPosition(vector<CONTROL*> &vc, int x, int y){
 	bool found = false;
-	for (int i = 4; i >= 0; i--){
-		int vc_size = vc.size();
-		for (int j = vc_size-1; j >= 0; j--) {
-			if (vc[j]->isClicked(x,y)){
-				if (vc[j]->canGetFocus()){
-					CONTROL::setFocus(*vc[j]);
-					found = true;
-					break;
-				}
+	int vc_size = vc.size();
+	for (int j = vc_size-1; j >= 0; j--) {
+		if (vc[j]->isClicked(x,y)){
+			if (vc[j]->canGetFocus()){
+				CONTROL::setFocus(*vc[j]);
+				found = true;
+				break;
 			}
 		}
-		if (found)
-			break;
 	}
 }
 
