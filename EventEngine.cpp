@@ -19,7 +19,7 @@ void EventEngine::run(CONTROL &c)
 				c.draw(_graphics,0,0, p);
 			redraw = false;
 		}
-
+		
 		INPUT_RECORD record;
 		DWORD count;
 		ReadConsoleInput(_console, &record, 1, &count);

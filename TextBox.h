@@ -7,7 +7,8 @@ class TextBox : public CONTROL
 {
 
 private:
-	
+	bool flag;
+	COORD cursor;
 protected:
 public:
 	TextBox(string, int, int, int, int);

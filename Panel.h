@@ -12,8 +12,9 @@ public:
 	Panel(string, int, int, int, int);
 	virtual ~Panel();
 	void AddControl(CONTROL&);
-	void draw(Graphics, int, int, size_t);
+	virtual void draw(Graphics, int, int, size_t);
 	void mousePressed(int, int, unsigned long);
 	void keyDown(unsigned short, char);
+	void incrementZIndex(CONTROL & control);
 private:
 };

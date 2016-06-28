@@ -16,7 +16,6 @@ private:
 		Plus(CONTROL&);
 		void MousePressed(CONTROL&, int, int, bool);
 	};
-
 	struct Minus : public MouseListener {
 	private:
 		CONTROL& _c;
@@ -24,13 +23,11 @@ private:
 		Minus(CONTROL&);
 		void MousePressed(CONTROL&, int, int, bool);
 	};
-	
 protected:
 public:
 	//NumericBox(int, int, int);
-	NumericBox(int, int, string, int, int, int, int);
+	NumericBox(string, int, int, int, int, int, int);
 	virtual ~NumericBox();
-	void draw(Graphics, int, int, size_t);
 	void mousePressed(int, int, unsigned long);
 	void keyDown(unsigned short, char);
 	bool canGetFocus();

@@ -1,21 +1,22 @@
 #include "Panel.h"
 
 Panel::~Panel(){
+
 }
 
 Panel::Panel(string str, int x, int y, int width, int height) :CONTROL(str, x, y, width, height) {
+
 }
 
 // Draws a control relatively to the control that holds it.
 void Panel::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 	// Draw the Panel
-	if (p == this->getZIndex())
+	if (p == 1)
 	{
 		//set graphics
 		this->graphics = graphics;
 		// set colors
-		graphics.setBackground(bc);
-		graphics.setForeground(fc);
+		this->setGraphics();
 		// init position
 		int xAbs = this->_position.X + x_relative,
 			yAbs = this->_position.Y + y_relative;
@@ -25,33 +26,27 @@ void Panel::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 		graphics.moveTo(xAbs + 1, yAbs + 1);
 		// draw control content
 		graphics.write(this->value);
-	}
-	// Draw panels children
-	for (CONTROL *c : this->controlsList) {
-		if (p == c->getZIndex() && c != this)
-		{
-			// set colors
-			c->setGraphics();
-			// init position
-			int xAbs = c->getLeft() + x_relative,
-				yAbs = c->getTop() + y_relative;
-			// draw frame of control
-			c->draw(graphics, 0, 0,p);
-			// init position
-			graphics.moveTo(xAbs + 1, yAbs + 1);
-			// draw control content
-			graphics.write(c->getValue());
+		// Draw all controls
+		for (CONTROL *c : this->controls) {
+			c->draw(graphics, 0, 0, p);
 		}
 	}
-	
+
+	this->showCursorOnScreen();
+
 }
 
 // Adds control to the panel
 void Panel::AddControl(CONTROL& c){
 	controls.push_back(&c);
-	c.SetParent(*this);
 	c.setPosition(this->getLeft() + c.getLeft(), this->getTop() + c.getTop());
-	((Panel&)c).setZIndex(this->getZIndex() + 1);
+	c.SetParent(*this);
+	c.setZIndex(1);
+	// update cursor
+	COORD cursor;
+	cursor.X = c.getLeft() + c.getValue().length() + 1;
+	cursor.Y = getTop() + 1;
+	c.setCursor(cursor);
 }
 
 void Panel::mousePressed(int x, int y, unsigned long button){

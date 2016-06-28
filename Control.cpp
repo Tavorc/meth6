@@ -14,8 +14,16 @@ CONTROL::CONTROL(string str, int x, int y, int width, int height){
 	this->fc = Color::Green;
 	this->controlsList.push_back(this);
 	this->z_index = -1;
+	this->cursor.X = getLeft() + value.length() + 1;
+	this->cursor.Y = getTop() + 1;
 }
 CONTROL::~CONTROL(){
+}
+void CONTROL::showCursorOnScreen(){
+	graphics.setCursorVisibility(true);
+	int x = focus->cursor.X;
+	int y = focus->cursor.Y + 2;
+	graphics.moveTo(x, y);
 }
 string CONTROL::getValue(){
 	return this->value;
@@ -24,9 +32,15 @@ CONTROL*  CONTROL::getFocus(){
 	return focus;
 }
 void CONTROL::setFocus(CONTROL&c){
-	 focus = &c;
+	focus = &c;
 }
 void CONTROL::mousePressed(int x, int y, unsigned long button){
+}
+COORD CONTROL::getCursor(){
+	return this->cursor;
+}
+void CONTROL::setCursor(COORD coord){
+	this->cursor = coord;
 }
 void CONTROL::keyDown(unsigned short, char){
 }
@@ -53,8 +67,8 @@ int CONTROL::getTop(){
 }
 // Determines whether the control is in the click area
 bool CONTROL::isClicked(int x, int y){
-	for (int i = this->_position.Y; i < this->_position.Y + this->_size.Y + 1;i++){
-		for (int j = this->_position.X; j < this->_position.X + this->_size.X + 1;j++){
+	for (int i = this->_position.Y; i < this->_position.Y + this->_size.Y + 1; i++){
+		for (int j = this->_position.X; j < this->_position.X + this->_size.X + 1; j++){
 			if (i == y && j == x){
 				return true;
 			}
@@ -76,9 +90,8 @@ int CONTROL::getZIndex(){
 	return this->z_index;
 }
 // Sets the layer of this control
-void CONTROL::setZIndex(int z_index){
-	this->z_index = z_index;
-
+void CONTROL::setZIndex(int zindex){
+	this->z_index = zindex;
 }
 int CONTROL::getWidth(){
 	return _size.X;
