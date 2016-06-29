@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ComboBox.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="EventEngine.cpp" />
     <ClCompile Include="Form.cpp" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ComboBox.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="EventEngine.h" />
     <ClInclude Include="Form.h" />

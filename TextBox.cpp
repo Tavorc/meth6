@@ -33,10 +33,9 @@ void TextBox::draw(Graphics graphics, int x_relative, int y_relative, size_t p){
 	// init position
 	graphics.moveTo(xAbs + 1, yAbs + 1);
 	// draw control content
-	if (this->value.length() < this->_size.X - 2 || this->value.length() == this->_size.X - 2)
-	{
+	
 		graphics.write(this->value);
-	}
+
 	this->showCursorOnScreen();
 
 }
@@ -47,8 +46,14 @@ void TextBox::mousePressed(int x, int y, unsigned long button){
 
 void TextBox::keyDown(unsigned short code, char ch){
 
-	graphics.moveTo(this->_position.X + 2, this->_position.Y + 2);
-	this->value = this->value + string(1, ch);
+	graphics.moveTo(this->_position.X + 1, this->_position.Y + 1);
+	if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57) || (code == 32))
+	{
+		if (this->value.length() < this->_size.X - 3 || this->value.length() == this->_size.X - 3)
+		{
+			this->value = this->value + string(1, ch);
+		}
+	}
 	graphics.write(this->value);
 	COORD coord;
 	coord.Y = CONTROL::getFocus()->getCursor().Y;
@@ -71,8 +76,7 @@ void TextBox::keyDown(unsigned short code, char ch){
 	case VK_DELETE:
 		break;
 	default:
-		if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57) || (code == 32))
-
+		
 			break;
 	}
 
