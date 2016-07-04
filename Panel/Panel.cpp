@@ -16,7 +16,7 @@ void Panel::AddControl(Control& c, int x, int y) {
 	c.SetPosition({ x+GetLeft(), y+getTop() });
 	int x1 = c.GetLeft() + c.GetText().length();
 	int y1 = c.getTop() + 1;
-	c.SetCursor(x1,y1);
+	c.SetCursor(x1+1,y1);
 	_controls.push_back(&c);
 }
 

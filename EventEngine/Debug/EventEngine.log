@@ -1,13 +1,10 @@
-﻿Build started 7/4/2016 3:06:27 PM.
-     1>Project "C:\Users\Oran\Documents\GitHub\controlsNew\EventEngine\EventEngine.vcxproj" on node 4 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Naama\VisualStudioProjects\Controllers\EventEngine /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt EventEngine.cpp
-         EventEngine.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Oran\Documents\GitHub\controlsNew\ConsoleApplication1\Debug\EventEngine.lib" /NOLOGO Debug\EventEngine.obj
-         EventEngine.vcxproj -> C:\Users\Oran\Documents\GitHub\controlsNew\ConsoleApplication1\Debug\EventEngine.lib
-     1>Done Building Project "C:\Users\Oran\Documents\GitHub\controlsNew\EventEngine\EventEngine.vcxproj" (Build target(s)).
+﻿Build started 04/07/2016 18:04:27.
+     1>Project "C:\Users\user\Documents\GitHub\meth6\EventEngine\EventEngine.vcxproj" on node 3 (Build target(s)).
+     1>Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\user\Documents\GitHub\meth6\ConsoleApplication1\Debug\EventEngine.lib" /NOLOGO Debug\EventEngine.obj
+         EventEngine.vcxproj -> C:\Users\user\Documents\GitHub\meth6\ConsoleApplication1\Debug\EventEngine.lib
+     1>Done Building Project "C:\Users\user\Documents\GitHub\meth6\EventEngine\EventEngine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.39
+Time Elapsed 00:00:03.02
