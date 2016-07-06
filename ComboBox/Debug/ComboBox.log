@@ -1,0 +1,3 @@
+﻿  ComboBox.cpp
+c:\users\shir\desktop\meth-new\meth6\combobox\combobox.cpp(38): warning C4018: '<' : signed/unsigned mismatch
+  ComboBox.vcxproj -> C:\Users\shir\Desktop\meth-new\meth6\Debug\ComboBox.lib

@@ -6,7 +6,7 @@ using namespace System;
 //#include "Button.h"
 #include "../Panel/Panel.h"
 //#include "NumericBox.h"
-//#include "ComboBox.h"
+#include "../ComboBox/ComboBox.h"
 using namespace std;
 
 /*struct MyListener : public MouseListener
@@ -42,10 +42,10 @@ int main(int argc, char **argv)
 	TextBox tAddress(25);
 	tAddress.SetText("221B Baker Street, London");
 	tAddress.SetBorderosition(BorderType::Single);
-	/*ComboBox cCountry({ "Israel", "Great Britain", "United States" }, 20);
+	ComboBox cCountry({ "Israel", "Great Britain", "United States" }, 20);
 	cCountry.setSelectedIndex(1);
 	cCountry.SetBorderosition(BorderType::Single);
-	Radiolist rSex(2, 15, { "Male", "Female" });
+	/*Radiolist rSex(2, 15, { "Male", "Female" });
 	rSex.SetBorderosition(BorderType::Single);
 	Checklist clInterests(3, 15, { "Sports", "Books", "Movies" });
 	clInterests.selectIndex(1);
@@ -70,8 +70,8 @@ int main(int argc, char **argv)
 	main.AddControl(lAge, 1, 20);
 	main.AddControl(tName, 25, 2);
 	main.AddControl(tAddress, 25, 5);
-	/*main.AddControl(cCountry, 25, 8);
-	main.AddControl(rSex, 25, 11);
+	main.AddControl(cCountry, 25, 8);
+	/*main.AddControl(rSex, 25, 11);
 	main.AddControl(clInterests, 25, 15);
 	main.AddControl(nAge, 25, 20);
 
