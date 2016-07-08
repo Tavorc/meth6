@@ -58,13 +58,18 @@ void ComboBox::mousePressed(int x, int y, bool isLeft){
 			}
 			//close the options box
 			_isPressed = false;
+			SetLayer(3);
 		}
 		else{
 			//open the options box
 			_isPressed = true;
+			SetLayer(2);
 		}
 	}
-	else if (_isPressed) _isPressed = false;
+	else if (_isPressed){
+		_isPressed = false;
+		SetLayer(3);
+	}
 }
 
 void ComboBox::keyDown(int code, char ch){

@@ -3,6 +3,7 @@
 Control::Control(int width) : _width(width), _height(1), _bgColor(BackgroundColor::Black), _fgColor(ForegroundColor::White),
 							  _isVisible(true), _layer(0), _border(BorderType::None), _position({ 0, 0 }) {
 	controlsList.push_back(this);
+	this->_layer = 3;
 }
 
 Control::~Control() {

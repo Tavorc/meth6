@@ -27,9 +27,13 @@ void Panel::getAllControls(vector<Control*> &controls) {
 }
 
 void Panel::draw(Graphics& g, int x, int y, size_t layer) {
-	Control::draw(g, x, y, layer);
-	for (Control * c : _controls) c->draw(g, x, y, layer);
-	GetFocus()->showCursorOnScreen(g);
+	if (this->GetLayer() == layer){
+		Control::draw(g, x, y, layer);
+		for (Control * c : _controls){
+			c->draw(g, x, y, layer);
+		}
+		GetFocus()->showCursorOnScreen(g);
+	}
 }
 
 // Finds control on the given position and sets the focus on it.
