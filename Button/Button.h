@@ -13,16 +13,10 @@ private:
 	vector<MouseListener*> listeners;
 public:
 	Button(int width);
-
 	virtual ~Button();
-
-
 	void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	void keyDown(int, char);
 	bool canGetFocus() const;
-	
 	void AddListener(MouseListener &listener);
-	void SetText(string value);
-
 };

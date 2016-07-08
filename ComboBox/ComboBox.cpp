@@ -58,17 +58,17 @@ void ComboBox::mousePressed(int x, int y, bool isLeft){
 			}
 			//close the options box
 			_isPressed = false;
-			SetLayer(3);
+			SetLayer(4);
 		}
 		else{
 			//open the options box
 			_isPressed = true;
-			SetLayer(2);
+			SetLayer(3);
 		}
 	}
 	else if (_isPressed){
 		_isPressed = false;
-		SetLayer(3);
+		SetLayer(4);
 	}
 }
 
