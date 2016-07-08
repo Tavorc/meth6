@@ -15,6 +15,7 @@ public:
 	virtual void mousePressed(int, int, bool);
 	virtual void keyDown(int, char);
 	virtual bool canGetFocus() const;
+	virtual bool isCursorable();
 	void Clear();
 
 };

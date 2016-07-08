@@ -15,6 +15,7 @@ bool ComboBox::canGetFocus() const {
 	return true;
 }
 
+
 size_t ComboBox::getSelectedIndex(){
 	return _selectedIndex;
 }
@@ -23,12 +24,9 @@ void ComboBox::setSelectedIndex(size_t index){
 }
 
 void ComboBox::draw(Graphics& graphics, int x_relative, int y_relative, size_t layer){
-	// change color of textbox in focus
-	/*if (this == focus)
-	{
-		graphics.setBackground(Color::White);
-		graphics.setForeground(Color::Black);
-	}*/
+
+	graphics.setForeground((Color)GetForegroundColor());
+	graphics.setBackground((Color)GetBackgroundColor());
 
 	if (_isPressed) {
 		SetHeight(_entries.size() + 1);
@@ -47,7 +45,6 @@ void ComboBox::draw(Graphics& graphics, int x_relative, int y_relative, size_t l
 		graphics.write(_position.X + 1, _position.Y + 1, _text);
 	}
 	graphics.setCursorVisibility(false);
-
 }
 
 void ComboBox::mousePressed(int x, int y, bool isLeft){

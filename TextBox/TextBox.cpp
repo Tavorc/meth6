@@ -19,6 +19,10 @@ void TextBox::draw(Graphics& g, int x, int y, size_t layer) {
 	}
 }
 
+bool TextBox::isCursorable(){
+	return true;
+}
+
 void TextBox::mousePressed(int x, int y, bool isLeft) {
 	if (isClicked(x,y) && y-1==getTop() && x > GetLeft()){
 		this->_cursor.X = x;
@@ -50,12 +54,12 @@ void TextBox::keyDown(int code, char ch) {
 		coord.X = _cursor.X - 1;
 		_cursor = (coord);
 		temp = GetText();
-			temp.erase(coord.X - _position.X - 1, 1);
+		temp.erase(coord.X - _position.X - 1, 1);
 		SetText(temp);
-			break;
+		break;
 	case VK_RIGHT:
 	case VK_NUMPAD6:
-		
+
 		temp = GetText();
 		if (_cursor.X< this->_position.X + GetWidth())
 		{
@@ -65,29 +69,29 @@ void TextBox::keyDown(int code, char ch) {
 		break;
 	case VK_LEFT:
 	case VK_NUMPAD4:
-		if (_cursor.X>this->_position.X+1)
+		if (_cursor.X>this->_position.X + 1)
 		{
 			coord.X = _cursor.X - 1;
 			_cursor = (coord);
-		}	
+		}
 		break;
 	case VK_RETURN:
 		break;
 	case VK_DELETE:
 		coord.X = _cursor.X - 1;
-		
+
 		temp = GetText();
-		if (coord.X <temp.length() + _position.X )
+		if (coord.X <temp.length() + _position.X)
 		{
-			temp.erase(coord.X - _position.X+1, 1);
+			temp.erase(coord.X - _position.X + 1, 1);
 			_cursor = (coord);
 		}
 		SetText(temp);
 		break;
 	default:
 		break;
-		}
 	}
+}
 
 bool TextBox::canGetFocus() const {
 	return true;

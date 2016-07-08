@@ -2,23 +2,23 @@
 #include "../EventEngine/EventEngine.h"
 #include "../TextBox/TextBox.h"
 #include "../Label/Label.h"
-using namespace System;
-//#include "Button.h"
 #include "../Panel/Panel.h"
-//#include "NumericBox.h"
 #include "../ComboBox/ComboBox.h"
+#include "../Button/Button.h"
+//#include "NumericBox.h"
+using namespace System;
 using namespace std;
 
-/*struct MyListener : public MouseListener
+struct MyListener : public MouseListener
 {
 	MyListener(Control &c) : _c(c) { }
-	void mousePressed(Button &b, int x, int y, bool isLeft)
+	void mousePressed(Control &b, int x, int y, bool isLeft)
 	{
-		_c.setForeground(Color::Red);
+		_c.SetForeground(ForegroundColor::Red);
 	}
 private:
 	Control &_c;
-};*/
+};
 
 int main(int argc, char **argv)
 {
@@ -53,11 +53,12 @@ int main(int argc, char **argv)
 	NumericBox nAge(15, 18, 120);
 	nAge.setValue(23);
 	nAge.SetBorderosition(BorderType::Single);
+	*/
 	MyListener listener(tAddress);
 	Button bSubmit(10);
-	bSubmit.setText("Submit");
-	bSubmit.addListener(listener);
-	bSubmit.SetBorderosition(BorderType::Double);*/
+	bSubmit.SetText("Submit");
+	bSubmit.AddListener(listener);
+	bSubmit.SetBorderosition(BorderType::Double);
 	Panel main;
 	main.SetBorderosition(BorderType::Single);
 	main.SetWidth(Console::WindowWidth-4);
@@ -74,8 +75,8 @@ int main(int argc, char **argv)
 	/*main.AddControl(rSex, 25, 11);
 	main.AddControl(clInterests, 25, 15);
 	main.AddControl(nAge, 25, 20);
-
-	main.AddControl(bSubmit, 1, 22);*/
+	*/
+	main.AddControl(bSubmit, 1, 22);
 	Control::SetFocus(&tName);
 	EventEngine engine;
 	engine.run(main);

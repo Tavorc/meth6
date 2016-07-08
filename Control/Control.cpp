@@ -58,7 +58,7 @@ void Control::SetFocus(Control* c){
 
 void Control::showCursorOnScreen(Graphics & graphics) {
 	graphics.moveTo(GetFocus()->_cursor.X, GetFocus()->_cursor.Y);
-	graphics.setCursorVisibility(canGetFocus());
+	graphics.setCursorVisibility(isCursorable());
 }
 
 void Control::Show() {
@@ -134,6 +134,10 @@ bool Control::canGetFocus() const {
 	return false;
 }
 
+bool Control::isCursorable(){
+	return false;
+}
+
 int Control::GetLeft() const {
 	return _position.X;
 }
@@ -146,6 +150,8 @@ void Control::drawBorder(Graphics& g, int x, int y, size_t layer) {
 	x += _position.X;
 	y += _position.Y;
 	g.moveTo(x, y);
+	g.setForeground((Color)GetForegroundColor());
+	g.setBackground((Color)GetBackgroundColor());
 	g.write(string(1, _border == BorderType::Single ? S_TOP_LEFT_CHAR : D_TOP_LEFT_CHAR));
 	g.write(string(_width, _border == BorderType::Single ? S_VERT_CHAR : D_VERT_CHAR));
 	g.write(string(1, _border == BorderType::Single ? S_TOP_RIGHT_CHAR : D_TOP_RIGHT_CHAR));

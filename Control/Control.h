@@ -63,8 +63,10 @@ public:
 	virtual void mousePressed(int, int, bool) = 0;
 	virtual void keyDown(int, char) = 0;
 	virtual bool canGetFocus() const;
+
 	virtual void getAllControls(vector<Control*>&) {}
 	virtual void showCursorOnScreen(Graphics &);
+	virtual bool isCursorable();
 	
 	void drawBorder(Graphics&, int, int, size_t);
 

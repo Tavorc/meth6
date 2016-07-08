@@ -6,8 +6,8 @@
 using namespace std;
 
 enum class Color { Black, Blue, Green, Red, Cyan, Purple, Orange, White };
-enum class ForegroundColor { Red, Blue, Green, Purple, Teal, Yellow, White, Black };
-enum class BackgroundColor { Red, Blue, Green, Purple, Teal, Yellow, White, Black };
+enum class ForegroundColor { Black, Blue, Green, Red, Cyan, Purple, Orange, White };
+enum class BackgroundColor { Black, Blue, Green, Red, Cyan, Purple, Orange, White };
 
 class Graphics {
 public:

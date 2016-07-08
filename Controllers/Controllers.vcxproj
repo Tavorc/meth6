@@ -81,6 +81,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Button\Button.vcxproj">
+      <Project>{17bf2310-be09-4738-b26d-09aaef48e2bb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ComboBox\ComboBox.vcxproj">
+      <Project>{46ce9f2d-9ca4-4b90-b22b-ab9ddb4e87ca}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Control\Control.vcxproj">
       <Project>{ca2cec97-78de-4f61-8572-359fdc5aa6f6}</Project>
     </ProjectReference>
