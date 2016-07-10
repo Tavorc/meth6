@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C9938BC5-038F-4267-AB23-A4E5D25388BE}</ProjectGuid>
+    <ProjectGuid>{B1CEE30E-9E1B-4EFA-BAFD-4987C89248AF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>EventEngine</RootNamespace>
   </PropertyGroup>
@@ -52,7 +52,6 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Naama\VisualStudioProjects\Controllers\EventEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -1,13 +1,1 @@
-﻿Build started 7/8/2016 4:56:05 PM.
-     1>Project "C:\Users\Oran\Documents\GitHub\meth6\EventEngine\EventEngine.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Naama\VisualStudioProjects\Controllers\EventEngine /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt EventEngine.cpp
-         EventEngine.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Oran\Documents\GitHub\meth6\ConsoleApplication\Debug\EventEngine.lib" /NOLOGO Debug\EventEngine.obj
-         EventEngine.vcxproj -> C:\Users\Oran\Documents\GitHub\meth6\ConsoleApplication\Debug\EventEngine.lib
-     1>Done Building Project "C:\Users\Oran\Documents\GitHub\meth6\EventEngine\EventEngine.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:02.81
+﻿  EventEngine.vcxproj -> C:\Users\shir\Desktop\restore\meth6\Debug\EventEngine.lib

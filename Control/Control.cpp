@@ -1,73 +1,73 @@
 #include "Control.h"
 
 Control::Control(int width) : _width(width), _height(1), _bgColor(BackgroundColor::Black), _fgColor(ForegroundColor::White),
-							  _isVisible(true), _layer(0), _border(BorderType::None), _position({ 0, 0 }) {
+_isVisible(true), _layer(0), _border(BorderType::None), _position({ 0, 0 }) {
 	controlsList.push_back(this);
-	this->_layer = 4;
+	this->_layer = 1;
 }
 
 Control::~Control() {
 
 }
 
-void Control::SetCursor(int x, int y){
+void Control::setCursor(int x, int y){
 	_cursor.X = x;
 	_cursor.Y = y;
 }
 
-void Control::SetText(string value){
+void Control::setText(string value){
 	_value = value;
 }
 
-void Control::SetWidth(int width) {
+void Control::setWidth(int width) {
 	_width = width;
 }
 
-void Control::SetHeight(int height) {
+void Control::setHeight(int height) {
 	_height = height;
 }
 
-void Control::SetVisibility(bool visibility) {
-	if (visibility) Show();
-	else Hide();
+void Control::setVisibility(bool visibility) {
+	if (visibility) show();
+	else hide();
 }
 
-void Control::SetLayer(size_t layer) {
+void Control::setLayer(size_t layer) {
 	_layer = layer;
 }
 
-void Control::SetPosition(COORD position) {
+void Control::setPosition(COORD position) {
 	_position = position;
 }
 
-void Control::SetBackground(BackgroundColor background) {
-	_bgColor = background;
+void Control::setBackground(Color background) {
+	_bgColor = (BackgroundColor)background;
 }
 
-void Control::SetForeground(ForegroundColor foreground) {
-	_fgColor = foreground;
+void Control::setForeground(Color foreground) {
+	_fgColor = (ForegroundColor)foreground;
 }
 
-void Control::SetBorderosition(BorderType border) {
+void Control::setBorderosition(BorderType border) {
 	_border = border;
 }
 
 
-void Control::SetFocus(Control* c){
+void Control::setFocus(Control* c){
 	focus = c;
 }
 
 void Control::showCursorOnScreen(Graphics & graphics) {
-	graphics.moveTo(GetFocus()->_cursor.X, GetFocus()->_cursor.Y);
+	graphics.moveTo(getFocus()->_cursor.X, getFocus()->_cursor.Y);
 	graphics.setCursorVisibility(isCursorable());
 }
 
-void Control::Show() {
+void Control::show() {
 	_isVisible = true;
 	_layer = 5;
 }
 
-void Control::Hide() {
+void Control::hide() {
 	_isVisible = false;
 	_layer = 0;
 }
@@ -84,46 +84,46 @@ bool Control::isClicked(int x, int y){
 	return false;
 }
 
-vector<Control*> Control::GetControls() const{
+vector<Control*> Control::getControls() const{
 	return controlsList;
 }
 
-int Control::GetWidth() const {
+int Control::getWidth() const {
 	return _width;
 }
-int Control::GetHeight() const {
+int Control::getHeight() const {
 	return _height;
 }
 
-bool Control::GetVisibility() const {
+bool Control::getVisibility() const {
 	return _isVisible;
 }
 
-string Control::GetText(){
+string Control::getText(){
 	return _value;
 }
 
-size_t Control::GetLayer() const {
+size_t Control::getLayer() const {
 	return _layer;
 }
 
-COORD Control::GetPosition() const {
+COORD Control::getPosition() const {
 	return _position;
 }
 
-BorderType Control::GetBorder() const {
+BorderType Control::getBorder() const {
 	return _border;
 }
 
-Control* Control::GetFocus() {
+Control* Control::getFocus() {
 	return focus;
 }
 
-BackgroundColor Control::GetBackgroundColor() const {
+BackgroundColor Control::getBackgroundColor() const {
 	return _bgColor;
 }
 
-ForegroundColor Control::GetForegroundColor() const {
+ForegroundColor Control::getForegroundColor() const {
 	return _fgColor;
 }
 
@@ -151,8 +151,8 @@ void Control::drawBorder(Graphics& g, int x, int y, size_t layer) {
 	x += _position.X;
 	y += _position.Y;
 	g.moveTo(x, y);
-	g.setForeground((Color)GetForegroundColor());
-	g.setBackground((Color)GetBackgroundColor());
+	g.setForeground((Color)getForegroundColor());
+	g.setBackground((Color)getBackgroundColor());
 	g.write(string(1, _border == BorderType::Single ? S_TOP_LEFT_CHAR : D_TOP_LEFT_CHAR));
 	g.write(string(_width, _border == BorderType::Single ? S_VERT_CHAR : D_VERT_CHAR));
 	g.write(string(1, _border == BorderType::Single ? S_TOP_RIGHT_CHAR : D_TOP_RIGHT_CHAR));

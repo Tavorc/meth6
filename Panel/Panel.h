@@ -14,7 +14,7 @@ public:
 	Panel(int, int);
 	~Panel();
 
-	void AddControl(Control &, int, int);
+	void addControl(Control &, int, int);
 
 	virtual void getAllControls(vector<Control*>&);
 	virtual void draw(Graphics&, int, int, size_t);

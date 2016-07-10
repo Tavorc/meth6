@@ -4,7 +4,6 @@
 
 class Label : public Control {
 private:
-	string _text;
 
 protected:
 

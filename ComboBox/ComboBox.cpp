@@ -25,11 +25,12 @@ void ComboBox::setSelectedIndex(size_t index){
 
 void ComboBox::draw(Graphics& graphics, int x_relative, int y_relative, size_t layer){
 
-	graphics.setForeground((Color)GetForegroundColor());
-	graphics.setBackground((Color)GetBackgroundColor());
+	graphics.setForeground((Color)getForegroundColor());
+	graphics.setBackground((Color)getBackgroundColor());
 
+	if (getFocus() != this) _isPressed = false;
 	if (_isPressed) {
-		SetHeight(_entries.size() + 1);
+		setHeight(_entries.size() + 1);
 		// draw frame of control
 		Control::draw(graphics, 0, 0, layer);
 		graphics.write(_position.X + 1, _position.Y + 1, _text);
@@ -39,7 +40,7 @@ void ComboBox::draw(Graphics& graphics, int x_relative, int y_relative, size_t l
 		}
 	}
 	else{
-		SetHeight(1);
+		setHeight(1);
 		// draw frame of control
 		Control::draw(graphics, 0, 0, layer);
 		graphics.write(_position.X + 1, _position.Y + 1, _text);
@@ -58,17 +59,17 @@ void ComboBox::mousePressed(int x, int y, bool isLeft){
 			}
 			//close the options box
 			_isPressed = false;
-			SetLayer(4);
+			setLayer(2);
 		}
 		else{
 			//open the options box
 			_isPressed = true;
-			SetLayer(3);
+			setLayer(3);
 		}
 	}
 	else if (_isPressed){
 		_isPressed = false;
-		SetLayer(4);
+		setLayer(2);
 	}
 }
 
@@ -76,8 +77,8 @@ void ComboBox::keyDown(int code, char ch){
 	//if the box is already open
 	if (_isPressed){
 		//enter key pressed - close box
-		if (code == VK_RETURN){
-			SetHeight(1);
+		if (code == VK_RETURN || code == VK_TAB){
+			setHeight(1);
 			_isPressed = false;
 		}
 		//down arrow key pressed - go to next option
@@ -97,7 +98,7 @@ void ComboBox::keyDown(int code, char ch){
 	else{
 		//enter key opens the box
 		if (code == VK_RETURN){
-			SetHeight(_entries.size() + 1);
+			setHeight(_entries.size() + 1);
 			_isPressed = true;
 		}
 

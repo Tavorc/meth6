@@ -1,14 +1,1 @@
-﻿Build started 7/8/2016 4:56:05 PM.
-     1>Project "C:\Users\Oran\Documents\GitHub\meth6\Graphics\Graphics.vcxproj" on node 3 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Naama\VisualStudioProjects\Controllers\Graphics /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Graphics.cpp
-         Graphics.cpp
-     1>c:\users\oran\documents\github\meth6\graphics\graphics.cpp(97): warning C4244: 'argument' : conversion from 'DWORD' to 'WORD', possible loss of data
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Oran\Documents\GitHub\meth6\ConsoleApplication\Debug\Graphics.lib" /NOLOGO Debug\Graphics.obj
-         Graphics.vcxproj -> C:\Users\Oran\Documents\GitHub\meth6\ConsoleApplication\Debug\Graphics.lib
-     1>Done Building Project "C:\Users\Oran\Documents\GitHub\meth6\Graphics\Graphics.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:02.69
+﻿  Graphics.vcxproj -> C:\Users\shir\Desktop\restore\meth6\Debug\Graphics.lib

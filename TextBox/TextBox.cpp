@@ -1,7 +1,7 @@
 #include "TextBox.h"
 
 TextBox::TextBox(int width) : Control(width) {
-	_cursor = { GetLeft() + GetText().length() + 1, getTop() + 1 };
+	_cursor = { GetLeft() + getText().length() + 1, getTop() + 1 };
 
 }
 
@@ -10,12 +10,12 @@ TextBox::~TextBox() {
 }
 
 void TextBox::draw(Graphics& g, int x, int y, size_t layer) {
-	//g.setBackground(GetBackgroundColor());
-	//g.setForeground(GetForegroundColor());
+	//g.setBackground(getBackgroundColor());
+	//g.setForeground(getForegroundColor());
 	Control::draw(g, x, y, layer);
-	if (GetBorder() != BorderType::None) g.write(GetLeft() + 1, getTop() + 1, GetText());
+	if (getBorder() != BorderType::None) g.write(GetLeft() + 1, getTop() + 1, getText());
 	else {
-		g.write(GetLeft(), getTop(), GetText());
+		g.write(GetLeft(), getTop(), getText());
 	}
 }
 
@@ -24,8 +24,13 @@ bool TextBox::isCursorable(){
 }
 
 void TextBox::mousePressed(int x, int y, bool isLeft) {
-	if (isClicked(x,y) && y-1==getTop() && x > GetLeft()){
+	if (isClicked(x, y) && y - 1 == getTop() && x > GetLeft()){
 		this->_cursor.X = x;
+		this->_cursor.Y = y;
+	}
+	if (isClicked(x, y) && y - 1 == getTop() && x > GetLeft() + this->getText().length())
+	{
+		this->_cursor.X = GetLeft() + this->getText().length() + 1;
 		this->_cursor.Y = y;
 	}
 }
@@ -38,12 +43,27 @@ void TextBox::keyDown(int code, char ch) {
 
 	if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57) || (code == 32))
 	{
-		if (this->GetText().length() < this->_position.X - 6 || this->GetText().length() == this->_position.X - 6)
+		if (_cursor.X == this->getText().length() + this->_position.X + 1)
 		{
-			string a = this->GetText() + string(1, ch);
-			this->SetText(a);
-			crd.X++;
-			_cursor = (crd);
+			if (this->getText().length() < this->_position.X - 6 || this->getText().length() == this->_position.X - 6)
+			{
+				string a = this->getText() + string(1, ch);
+				this->setText(a);
+				crd.X++;
+				_cursor = (crd);
+			}
+		}
+		else
+		{
+			if (this->getText().length() < this->_position.X - 6 || this->getText().length() == this->_position.X - 6)
+			{
+				string a = this->getText();
+				int index = _cursor.X - this->_position.X - 1;
+				a.insert(index + 1, std::string(1, ch));
+				this->setText(a);
+				crd.X++;
+				_cursor = (crd);
+			}
 		}
 	}
 	COORD coord;
@@ -53,15 +73,15 @@ void TextBox::keyDown(int code, char ch) {
 	case VK_BACK:
 		coord.X = _cursor.X - 1;
 		_cursor = (coord);
-		temp = GetText();
+		temp = getText();
 		temp.erase(coord.X - _position.X - 1, 1);
-		SetText(temp);
+		setText(temp);
 		break;
 	case VK_RIGHT:
 	case VK_NUMPAD6:
 
-		temp = GetText();
-		if (_cursor.X< this->_position.X + GetWidth())
+		temp = getText();
+		if (_cursor.X< this->_position.X + getWidth())
 		{
 			coord.X = _cursor.X + 1;
 			_cursor = (coord);
@@ -80,13 +100,13 @@ void TextBox::keyDown(int code, char ch) {
 	case VK_DELETE:
 		coord.X = _cursor.X - 1;
 
-		temp = GetText();
+		temp = getText();
 		if (coord.X <temp.length() + _position.X)
 		{
 			temp.erase(coord.X - _position.X + 1, 1);
 			_cursor = (coord);
 		}
-		SetText(temp);
+		setText(temp);
 		break;
 	default:
 		break;
@@ -96,9 +116,9 @@ void TextBox::keyDown(int code, char ch) {
 bool TextBox::canGetFocus() const {
 	return true;
 }
-void TextBox::Clear(){
-	for (int i = this->_position.X; i < this->_position.X + this->GetText().length(); i++){
-		SetCursor(i, this->_position.Y);
+void TextBox::clear(){
+	for (int i = this->_position.X; i < this->_position.X + this->getText().length(); i++){
+		setCursor(i, this->_position.Y);
 		printf("%c", ' ');
 	}
 }

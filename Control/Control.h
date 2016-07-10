@@ -30,31 +30,31 @@ public:
 	Control(int);
 	~Control();
 
-	void SetWidth(int);
-	void SetCursor(int, int);
-	void SetHeight(int);
-	void SetVisibility(bool);
-	void SetLayer(size_t);
-	void SetPosition(COORD);
-	void SetText(string);
-	void SetBackground(BackgroundColor);
-	void SetForeground(ForegroundColor);
-	void SetBorderosition(BorderType);
-	static void SetFocus(Control*);
-	void Show();
-	void Hide();
+	void setWidth(int);
+	void setCursor(int, int);
+	void setHeight(int);
+	void setVisibility(bool);
+	void setLayer(size_t);
+	void setPosition(COORD);
+	void setText(string);
+	void setBackground(Color);
+	void setForeground(Color);
+	void setBorderosition(BorderType);
+	static void setFocus(Control*);
+	void show();
+	void hide();
 
-	int GetWidth() const;
-	int GetHeight() const;
-	bool GetVisibility() const;
-	size_t GetLayer() const;
-	COORD GetPosition() const;
-	string GetText();
-	BorderType GetBorder() const;
-	static Control* GetFocus();
-	BackgroundColor GetBackgroundColor() const;
-	ForegroundColor GetForegroundColor() const;
-	vector<Control*> GetControls() const;
+	int getWidth() const;
+	int getHeight() const;
+	bool getVisibility() const;
+	size_t getLayer() const;
+	COORD getPosition() const;
+	string getText();
+	BorderType getBorder() const;
+	static Control* getFocus();
+	BackgroundColor getBackgroundColor() const;
+	ForegroundColor getForegroundColor() const;
+	vector<Control*> getControls() const;
 	bool isClicked(int x, int y);
 	int GetLeft() const;
 	int getTop() const;
@@ -67,7 +67,7 @@ public:
 	virtual void getAllControls(vector<Control*>&) {}
 	virtual void showCursorOnScreen(Graphics &);
 	virtual bool isCursorable();
-	
+
 	void drawBorder(Graphics&, int, int, size_t);
 
 };

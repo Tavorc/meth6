@@ -12,12 +12,13 @@ Panel::~Panel() {
 
 }
 
-void Panel::AddControl(Control& c, int x, int y) {
-	c.SetPosition({ x+GetLeft(), y+getTop() });
-	int x1 = c.GetLeft() + c.GetText().length();
+void Panel::addControl(Control& c, int x, int y) {
+	c.setPosition({ x + GetLeft(), y + getTop() });
+	int x1 = c.GetLeft() + c.getText().length();
 	int y1 = c.getTop() + 1;
-	c.SetCursor(x1+1,y1);
+	c.setCursor(x1 + 1, y1);
 	_controls.push_back(&c);
+	c.setLayer(2);
 }
 
 void Panel::getAllControls(vector<Control*> &controls) {
@@ -27,23 +28,23 @@ void Panel::getAllControls(vector<Control*> &controls) {
 }
 
 void Panel::draw(Graphics& g, int x, int y, size_t layer) {
-	if (this->GetLayer() == layer){
+	//if (this->getLayer() == layer){
 		Control::draw(g, x, y, layer);
 		for (Control * c : _controls){
 			c->draw(g, x, y, layer);
 		}
-		GetFocus()->showCursorOnScreen(g);
-	}
+		getFocus()->showCursorOnScreen(g);
+	//}
 }
 
 // Finds control on the given position and sets the focus on it.
 void Panel::setFocusByPosition(int x, int y){
 	bool found = false;
-	int vc_size = this->GetControls().size();
+	int vc_size = this->getControls().size();
 	for (int j = vc_size - 1; j >= 0; j--) {
-		if (this->GetControls()[j]->isClicked(x, y)){
-			if (this->GetControls()[j]->canGetFocus()){
-				Control::SetFocus(this->GetControls()[j]);
+		if (this->getControls()[j]->isClicked(x, y)){
+			if (this->getControls()[j]->canGetFocus()){
+				Control::setFocus(this->getControls()[j]);
 				found = true;
 				break;
 			}
@@ -52,8 +53,8 @@ void Panel::setFocusByPosition(int x, int y){
 }
 
 void Panel::mousePressed(int x, int y, bool isLeft) {
-	setFocusByPosition(x,y);
-	Control::GetFocus()->mousePressed(x, y, isLeft);
+	setFocusByPosition(x, y);
+	Control::getFocus()->mousePressed(x, y, isLeft);
 }
 
 void Panel::keyDown(int, char) {

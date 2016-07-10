@@ -16,6 +16,6 @@ public:
 	virtual void keyDown(int, char);
 	virtual bool canGetFocus() const;
 	virtual bool isCursorable();
-	void Clear();
+	void clear();
 
 };

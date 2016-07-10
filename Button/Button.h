@@ -18,5 +18,5 @@ public:
 	void mousePressed(int, int, bool);
 	void keyDown(int, char);
 	bool canGetFocus() const;
-	void AddListener(MouseListener &listener);
+	void addListener(MouseListener &listener);
 };
