@@ -1,1 +1,9 @@
-﻿  EventEngine.vcxproj -> C:\Users\shir\Desktop\restore\meth6\Debug\EventEngine.lib
+﻿Build started 7/10/2016 3:35:45 PM.
+     1>Project "C:\Users\Oran\Documents\GitHub\resotre\meth6\EventEngine\EventEngine.vcxproj" on node 4 (Build target(s)).
+     1>Lib:
+         EventEngine.vcxproj -> C:\Users\Oran\Documents\GitHub\resotre\meth6\Debug\EventEngine.lib
+     1>Done Building Project "C:\Users\Oran\Documents\GitHub\resotre\meth6\EventEngine\EventEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.26

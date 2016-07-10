@@ -4,7 +4,6 @@
 Row::Row(string r, boolean b){
 	text = r;
 	isChecked = b;
-
 }
 
 Row::~Row(){
