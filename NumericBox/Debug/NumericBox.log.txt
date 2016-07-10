@@ -1,0 +1,2 @@
+﻿  NumericBox.cpp
+  NumericBox.vcxproj -> C:\Users\shir\Desktop\10-7-16\meth6\Debug\NumericBox.lib

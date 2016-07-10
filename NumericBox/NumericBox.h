@@ -9,6 +9,8 @@ private:
 	int _min;
 	int _max;
 	Label _label;
+	Button _minusBtn;
+	Button _plusBtn;
 
 	struct Plus : public MouseListener {
 	private:
@@ -32,9 +34,9 @@ public:
 	virtual ~NumericBox();
 
 	void setValue(int);
-	void draw(Graphics, int, int, size_t);
+	virtual void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	void keyDown(int, char);
-	bool canGetFocus();
+	bool canGetFocus() const;
 
 };

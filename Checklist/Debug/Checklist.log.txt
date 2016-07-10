@@ -1,0 +1,5 @@
+﻿  Checklist.cpp
+c:\users\shir\desktop\10-7-16\meth6\checklist\checklist.cpp(18): warning C4018: '<' : signed/unsigned mismatch
+c:\users\shir\desktop\10-7-16\meth6\checklist\checklist.cpp(20): warning C4018: '<' : signed/unsigned mismatch
+c:\users\shir\desktop\10-7-16\meth6\checklist\checklist.cpp(46): warning C4018: '<' : signed/unsigned mismatch
+  Checklist.vcxproj -> C:\Users\shir\Desktop\10-7-16\meth6\Debug\Checklist.lib

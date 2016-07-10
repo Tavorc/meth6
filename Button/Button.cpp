@@ -5,7 +5,8 @@ Button::Button(int width) : Control(width) {
 }
 
 Button::~Button() {
-
+	for (MouseListener *listener : listeners)
+		free(listener);
 }
 
 void Button::draw(Graphics& g, int x, int y, size_t layer) {
