@@ -71,17 +71,19 @@ void TextBox::keyDown(int code, char ch) {
 	coord.Y = _cursor.Y;
 	switch (code){
 	case VK_BACK:
-		coord.X = _cursor.X - 1;
-		_cursor = (coord);
-		temp = getText();
-		temp.erase(coord.X - _position.X - 1, 1);
-		setText(temp);
+		if (_cursor.X>this->_position.X + 1)
+		{
+			coord.X = _cursor.X - 1;
+			_cursor = (coord);
+			temp = getText();
+			temp.erase(coord.X - _position.X - 1, 1);
+			setText(temp);
+		}
 		break;
 	case VK_RIGHT:
 	case VK_NUMPAD6:
-
 		temp = getText();
-		if (_cursor.X< this->_position.X + getWidth())
+		if (_cursor.X< this->_position.X + this->getText().length())
 		{
 			coord.X = _cursor.X + 1;
 			_cursor = (coord);
@@ -99,12 +101,10 @@ void TextBox::keyDown(int code, char ch) {
 		break;
 	case VK_DELETE:
 		coord.X = _cursor.X - 1;
-
 		temp = getText();
 		if (coord.X <temp.length() + _position.X)
 		{
-			temp.erase(coord.X - _position.X + 1, 1);
-			_cursor = (coord);
+			temp.erase(coord.X-1 - _position.X + 1, 1);
 		}
 		setText(temp);
 		break;
