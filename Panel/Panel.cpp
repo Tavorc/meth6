@@ -3,25 +3,29 @@
 
 void updatePosition(Control & child, int x, int y);
 
+// C'tor
 Panel::Panel() : Control(0) {
 
 }
 
+// C'tor gets height and width of panel
 Panel::Panel(int height, int width) : Control(width) {
 	_height = height;
 }
 
+// D'tor
 Panel::~Panel() {
 
 }
 
+// Gets a control and define its relative position
 void Panel::addControl(Control& c, int x, int y) {
 	_controls.push_back(&c);
 	c.setLayer(getLayer() + 1);
 	updatePosition(c, x, y);
 }
 
-
+// Gets control and sets its relative position and its children recursive
 void updatePosition(Control & child, int x, int y){
 	child.setPosition({ x + child.GetLeft(), y + child.getTop() });
 	int x1 = child.GetLeft() + child.getText().length();
@@ -36,7 +40,7 @@ void updatePosition(Control & child, int x, int y){
 	}
 }
 
-
+// Sets layer of panel recursively
 void Panel::setLayer(size_t layer){
 	this->Control::setLayer(layer);
 	if (dynamic_cast<Panel*>(this)){
@@ -48,6 +52,7 @@ void Panel::setLayer(size_t layer){
 	}
 }
 
+// Sets visability recursively
 void Panel::setVisibility(bool isVisible){
 	this->Control::setVisibility(isVisible);
 	if (dynamic_cast<Panel*>(this)){
@@ -59,12 +64,14 @@ void Panel::setVisibility(bool isVisible){
 	}
 }
 
+// Gets all control of this panel
 void Panel::getAllControls(vector<Control*> &controls) {
 	for (Control* c : _controls) {
 		controls.push_back(c);
 	}
 }
 
+// Draw panel and its children 
 void Panel::draw(Graphics& g, int x, int y, size_t layer) {
 	if (this->getVisibility()){
 		if (getLayer() == layer){
@@ -101,15 +108,18 @@ void Panel::setFocusByPosition(int x, int y){
 	}
 }
 
+// Mouse event 
 void Panel::mousePressed(int x, int y, bool isLeft) {
 	setFocusByPosition(x, y);
 	Control::getFocus()->mousePressed(x, y, isLeft);
 }
 
+// Key event
 void Panel::keyDown(int, char) {
 
 }
 
+// Is panel can get focus
 bool Panel::canGetFocus() const {
 	return false;
 }
