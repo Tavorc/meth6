@@ -1,14 +1,3 @@
-﻿Build started 7/11/2016 6:20:12 PM.
-     1>Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\ComboBox\ComboBox.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ComboBox.cpp
-         ComboBox.cpp
-     1>c:\users\oran\documents\github\new meth6 merge\meth6\combobox\combobox.cpp(38): warning C4018: '<' : signed/unsigned mismatch
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Debug\ComboBox.lib" /NOLOGO Debug\ComboBox.obj
-         ComboBox.vcxproj -> C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Debug\ComboBox.lib
-     1>Done Building Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\ComboBox\ComboBox.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:03.60
+﻿  ComboBox.cpp
+c:\users\shir\desktop\10-7-16\meth6\combobox\combobox.cpp(38): warning C4018: '<' : signed/unsigned mismatch
+  ComboBox.vcxproj -> C:\Users\shir\Desktop\10-7-16\meth6\Debug\ComboBox.lib

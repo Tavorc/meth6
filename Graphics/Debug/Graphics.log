@@ -1,9 +1,1 @@
-﻿Build started 7/11/2016 5:25:53 PM.
-     1>Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Graphics\Graphics.vcxproj" on node 3 (Build target(s)).
-     1>Lib:
-         Graphics.vcxproj -> C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Debug\Graphics.lib
-     1>Done Building Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Graphics\Graphics.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.76
+﻿  Graphics.vcxproj -> C:\Users\shir\Desktop\10-7-16\meth6\Debug\Graphics.lib
