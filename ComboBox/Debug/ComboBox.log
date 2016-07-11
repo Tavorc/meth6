@@ -1,3 +1,14 @@
-﻿  ComboBox.cpp
-c:\users\shir\desktop\10-7-16\meth6\combobox\combobox.cpp(38): warning C4018: '<' : signed/unsigned mismatch
-  ComboBox.vcxproj -> C:\Users\shir\Desktop\10-7-16\meth6\Debug\ComboBox.lib
+﻿Build started 11/07/2016 21:06:52.
+     1>Project "C:\Users\Naama\Desktop\11-7-16\meth6\ComboBox\ComboBox.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ComboBox.cpp
+         ComboBox.cpp
+     1>c:\users\naama\desktop\11-7-16\meth6\combobox\combobox.cpp(38): warning C4018: '<' : signed/unsigned mismatch
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Naama\Desktop\11-7-16\meth6\Debug\ComboBox.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /NOLOGO Debug\ComboBox.obj
+         ComboBox.vcxproj -> C:\Users\Naama\Desktop\11-7-16\meth6\Debug\ComboBox.lib
+     1>Done Building Project "C:\Users\Naama\Desktop\11-7-16\meth6\ComboBox\ComboBox.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.38

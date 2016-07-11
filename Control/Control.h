@@ -49,7 +49,7 @@ public:
 	bool getVisibility() const;
 	size_t getLayer() const;
 	COORD getPosition() const;
-	string getText();
+	string getText() const;
 	BorderType getBorder() const;
 	static Control* getFocus();
 	BackgroundColor getBackgroundColor() const;

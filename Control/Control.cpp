@@ -98,7 +98,7 @@ bool Control::getVisibility() const {
 	return _isVisible;
 }
 
-string Control::getText(){
+string Control::getText() const{
 	return _value;
 }
 

@@ -34,6 +34,11 @@ public:
 	virtual ~NumericBox();
 
 	void setValue(int);
+	void setMin(int);
+	void setMax(int);
+
+	int getValue() const;
+	
 	virtual void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	void keyDown(int, char);

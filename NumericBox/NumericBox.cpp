@@ -27,6 +27,18 @@ void NumericBox::setValue(int value) {
 	}	
 }
 
+void NumericBox::setMin(int min) {
+	_min = min;
+}
+
+void NumericBox::setMax(int max) {
+	_max = max;
+}
+
+int NumericBox::getValue() const {
+	return stoi(_label.getText());
+}
+
 bool NumericBox::canGetFocus() const {
 	return false;
 }
@@ -35,15 +47,16 @@ void NumericBox::draw(Graphics& graphics, int x, int y, size_t layer) {
 	_minusBtn.setBorderosition(getBorder());
 	_plusBtn.setBorderosition(getBorder());
 	if (getBorder() != BorderType::None) {
-		_label.setPosition({ GetLeft() + 1, getTop() + 1 });
-		_plusBtn.setPosition({ GetLeft() + getWidth() + 2, getTop() + getHeight() -1 });
-		_minusBtn.setPosition({ GetLeft() + getWidth() + 5, getTop() + getHeight() -1 });
+		_label.setPosition({ GetLeft() + 4, getTop() + 1 });
+		_plusBtn.setPosition({ GetLeft() + getWidth() + 5, getTop() + getHeight() - 1 });
+		_minusBtn.setPosition({ GetLeft(), getTop() + getHeight() - 1 });
+
 	} else {
-		_label.setPosition({ GetLeft(), getTop() });
-		_plusBtn.setPosition({ GetLeft() + getWidth() + 2, getTop() });
-		_minusBtn.setPosition({ GetLeft() + getWidth() + 5, getTop() });
+		_label.setPosition({ GetLeft() + 4, getTop() });
+		_plusBtn.setPosition({ GetLeft() + getWidth() + 5, getTop() });
+		_minusBtn.setPosition({ GetLeft(), getTop() });
 	}
-	Control::draw(graphics, x, y, layer);
+	Control::draw(graphics, x+3, y, layer);
 	Panel::draw(graphics, x, y, layer + 1);
 }
 
@@ -52,10 +65,7 @@ void NumericBox::mousePressed(int x, int y, bool isLeft){
 }
 
 void NumericBox::keyDown(int code, char ch){
-	int value = stoi(getText());
-	if (code == VK_DOWN) value -= 1;
-	else if (code == VK_UP) value += 1;
-	setValue(value);
+
 }
 
 NumericBox::Plus::Plus(Control& c) : _c(c) {
