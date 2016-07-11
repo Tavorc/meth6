@@ -89,13 +89,13 @@ void ComboBox::keyDown(int code, char ch){
 			setLayer(1);
 		}
 		//down arrow key pressed - go to next option
-		else if (code == VK_DOWN || code == VK_NUMPAD8){
+		else if (code == VK_DOWN || code == VK_NUMPAD2){
 			_selectedIndex++;
 			if (_selectedIndex == _entries.size()) _selectedIndex = 0;
 			_text = _entries[_selectedIndex];
 		}
 		//up arrow key pressed - go to previous option
-		else if (code == VK_UP || code == VK_NUMPAD2){
+		else if (code == VK_UP || code == VK_NUMPAD8){
 			_selectedIndex--;
 			if (_selectedIndex == -1) _selectedIndex = _entries.size() - 1;
 			_text = _entries[_selectedIndex];

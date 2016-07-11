@@ -1,6 +1,7 @@
 #include "CheckList.h"
 #include <Windows.h>
 #include <stdio.h>
+
 Row::Row(string r, boolean b){
 	text = r;
 	isChecked = b;
@@ -10,14 +11,14 @@ Row::~Row(){
 
 }
 
-
 Checklist::Checklist(int width, int height, vector <string> list) : Control(width){
 	focusedRow = 0;
 	Row *temp;
 	int max = width;
+	// get width of the longest item in the list
 	for (int i = 0; i < list.size(); i++)
 	{
-		if (max < list[i].length() + 6) { max = list[i].length() + 6; }
+		if (max < list[i].length() + 6) max = list[i].length() + 6;
 		temp = new Row(list[i], false);
 		ar.push_back(*temp);
 	}
@@ -29,10 +30,9 @@ Checklist::~Checklist(){
 	//delete ar;
 }
 
-
-
-
-bool Checklist::canGetFocus() const { return true; }
+bool Checklist::canGetFocus() const {
+	return true;
+}
 
 void Checklist::draw(Graphics& graphics, int x_relative, int y_relative, size_t layer){
 
@@ -43,6 +43,7 @@ void Checklist::draw(Graphics& graphics, int x_relative, int y_relative, size_t 
 
 	Control::draw(graphics, 0, 0, layer);
 
+	// type all item in the list and put '*' on the checked ones
 	for (int i = 0; i < ar.size(); i++)
 	{
 		graphics.write(_position.X + 1, _position.Y + 1 + i, "  [ ] " + ar[i].getText());
