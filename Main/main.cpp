@@ -24,6 +24,7 @@ private:
 
 int main(int argc, char **argv)
 {
+	// Controls creation
 	Label lName(20);
 	lName.setText("Name: ");
 	Label lAddress(20);
@@ -61,7 +62,7 @@ int main(int argc, char **argv)
 	MessageB messageBox(6, 30);
 	messageBox.setText("Do you like the messagebox?");
 	messageBox.setTitle("We have a question:");
-
+	// Sign all controls to main panel
 	Panel main;
 	main.addControl(lName, 1, 2);
 	main.addControl(lAddress, 1, 5);
@@ -77,7 +78,7 @@ int main(int argc, char **argv)
 	main.addControl(nAge, 25, 20);
 	main.addControl(messageBox, 20, 4);
 	main.addControl(bSubmit, 1, 22);
-
+	// Run Controls
 	Control::setFocus(&tName);
 	EventEngine engine;
 	engine.run(main);
