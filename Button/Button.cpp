@@ -1,12 +1,11 @@
 #include "Button.h"
 
-Button::Button(int width) : Control(width) {
+Button::Button(int width) : Label(width) {
 
 }
 
 Button::~Button() {
-	for (MouseListener *listener : listeners)
-		free(listener);
+
 }
 
 void Button::draw(Graphics& g, int x, int y, size_t layer) {
@@ -26,9 +25,12 @@ void Button::keyDown(int, char) {
 }
 
 bool Button::canGetFocus() const {
-	return true;
+	return false;
 }
 
+bool Button::canClicked() const {
+	return true;
+}
 
 void Button::addListener(MouseListener &listener){
 	listeners.push_back(&listener);

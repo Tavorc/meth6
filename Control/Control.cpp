@@ -3,7 +3,7 @@
 Control::Control(int width) : _width(width), _height(1), _bgColor(BackgroundColor::Black), _fgColor(ForegroundColor::White),
 _isVisible(true), _layer(0), _border(BorderType::None), _position({ 0, 0 }) {
 	controlsList.push_back(this);
-	this->_layer = 1;
+	this->_layer = 0;
 }
 
 Control::~Control() {
@@ -51,7 +51,6 @@ void Control::setForeground(Color foreground) {
 void Control::setBorderosition(BorderType border) {
 	_border = border;
 }
-
 
 void Control::setFocus(Control* c){
 	focus = c;
@@ -128,10 +127,16 @@ ForegroundColor Control::getForegroundColor() const {
 }
 
 void Control::draw(Graphics &g, int left, int top, size_t layer) {
-	if (_border != BorderType::None) drawBorder(g, left, top, layer);
+	if (_layer == layer){
+		if (_border != BorderType::None) drawBorder(g, left, top, layer);
+	}
 }
 
 bool Control::canGetFocus() const {
+	return false;
+}
+
+bool Control::canClicked() const {
 	return false;
 }
 

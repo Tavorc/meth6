@@ -1,0 +1,13 @@
+﻿Build started 7/11/2016 6:08:05 PM.
+     1>Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\MessageBox\MessageBox.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MessageBox.cpp
+         MessageBox.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Debug\MessageBox.lib" /NOLOGO Debug\MessageBox.obj
+         MessageBox.vcxproj -> C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\Debug\MessageBox.lib
+     1>Done Building Project "C:\Users\Oran\Documents\GitHub\new meth6 merge\meth6\MessageBox\MessageBox.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.21

@@ -36,7 +36,13 @@ void ComboBox::draw(Graphics& graphics, int x_relative, int y_relative, size_t l
 		graphics.write(_position.X + 1, _position.Y + 1, _text);
 		// init position
 		for (int option = 0; option < _entries.size(); option++){
+			if (_selectedIndex == option){
+				graphics.setForeground((Color)getBackgroundColor());
+				graphics.setBackground((Color)getForegroundColor());
+			}
 			graphics.write(_position.X + 1, _position.Y + 2 + option, _entries[option]);
+			graphics.setForeground((Color)getForegroundColor());
+			graphics.setBackground((Color)getBackgroundColor());
 		}
 	}
 	else{
@@ -59,17 +65,17 @@ void ComboBox::mousePressed(int x, int y, bool isLeft){
 			}
 			//close the options box
 			_isPressed = false;
-			setLayer(2);
+			setLayer(1);
 		}
 		else{
 			//open the options box
 			_isPressed = true;
-			setLayer(3);
+			setLayer(2);
 		}
 	}
 	else if (_isPressed){
 		_isPressed = false;
-		setLayer(2);
+		setLayer(1);
 	}
 }
 
@@ -80,6 +86,7 @@ void ComboBox::keyDown(int code, char ch){
 		if (code == VK_RETURN || code == VK_TAB){
 			setHeight(1);
 			_isPressed = false;
+			setLayer(1);
 		}
 		//down arrow key pressed - go to next option
 		else if (code == VK_DOWN){
@@ -98,6 +105,7 @@ void ComboBox::keyDown(int code, char ch){
 	else{
 		//enter key opens the box
 		if (code == VK_RETURN){
+			setLayer(2);
 			setHeight(_entries.size() + 1);
 			_isPressed = true;
 		}

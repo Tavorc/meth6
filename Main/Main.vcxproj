@@ -100,6 +100,9 @@
     <ProjectReference Include="..\Label\Label.vcxproj">
       <Project>{1bbee2cc-526c-43c4-80d1-eb82fa6a194b}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\MessageBox\MessageBox.vcxproj">
+      <Project>{708d5159-5b14-40a4-a8d3-8c619214d32f}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\NumericBox\NumericBox.vcxproj">
       <Project>{83c4cc01-6175-4110-aa7e-ec324871762c}</Project>
     </ProjectReference>

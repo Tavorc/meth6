@@ -7,6 +7,8 @@
 #include "..\NumericBox\NumericBox.h"
 #include "..\Checklist\Checklist.h"
 #include "..\Radiolist\Radiolist.h"
+#include "..\MessageBox\MessageBox.h"
+
 using namespace std;
 
 struct MyListener : public MouseListener
@@ -34,8 +36,6 @@ int main(int argc, char **argv)
 	lInterests.setText("Interests:");
 	Label lAge(20);
 	lAge.setText("Age:");
-
-
 	TextBox tName(20);
 	tName.setText("Sherlock Holmes");
 	tName.setBorderosition(BorderType::Double);
@@ -53,12 +53,15 @@ int main(int argc, char **argv)
 	NumericBox nAge(15, 18, 120);
 	nAge.setValue(23);
 	nAge.setBorderosition(BorderType::Single);
-
 	MyListener listener(tAddress);
 	Button bSubmit(10);
 	bSubmit.setText("Submit");
 	bSubmit.addListener(listener);
 	bSubmit.setBorderosition(BorderType::Double);
+	MessageB messageBox(6, 30);
+	messageBox.setText("Do you like the messagebox?");
+	messageBox.setTitle("We have a question:");
+
 	Panel main;
 	main.addControl(lName, 1, 2);
 	main.addControl(lAddress, 1, 5);
@@ -72,8 +75,9 @@ int main(int argc, char **argv)
 	main.addControl(rSex, 25, 11);
 	main.addControl(clInterests, 25, 15);
 	main.addControl(nAge, 25, 20);
-
+	main.addControl(messageBox, 20, 4);
 	main.addControl(bSubmit, 1, 22);
+
 	Control::setFocus(&tName);
 	EventEngine engine;
 	engine.run(main);

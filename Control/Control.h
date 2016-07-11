@@ -12,8 +12,7 @@ enum class BorderType { Single, Double, None };
 
 class Control {
 private:
-	int				_width;
-	int				_height;
+
 	bool			_isVisible;
 	string			_value;
 	size_t			_layer;
@@ -24,7 +23,8 @@ private:
 protected:
 	COORD	_position;
 	COORD _cursor;
-	//Graphics _graphics;			//? CHECK IF MUST
+	int				_width;
+	int				_height;
 
 public:
 	Control(int);
@@ -33,9 +33,9 @@ public:
 	void setWidth(int);
 	void setCursor(int, int);
 	void setHeight(int);
-	void setVisibility(bool);
-	void setLayer(size_t);
-	void setPosition(COORD);
+	virtual void setVisibility(bool);
+	virtual void setLayer(size_t);
+	virtual void setPosition(COORD);
 	void setText(string);
 	void setBackground(Color);
 	void setForeground(Color);
@@ -63,6 +63,7 @@ public:
 	virtual void mousePressed(int, int, bool) = 0;
 	virtual void keyDown(int, char) = 0;
 	virtual bool canGetFocus() const;
+	virtual bool canClicked() const;
 
 	virtual void getAllControls(vector<Control*>&) {}
 	virtual void showCursorOnScreen(Graphics &);
