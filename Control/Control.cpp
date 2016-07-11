@@ -55,7 +55,7 @@ void Control::setBorderosition(BorderType border) {
 void Control::setFocus(Control* c){
 	focus = c;
 }
-
+//find the cursor and show it
 void Control::showCursorOnScreen(Graphics & graphics) {
 	graphics.moveTo(getFocus()->_cursor.X, getFocus()->_cursor.Y);
 	graphics.setCursorVisibility(isCursorable());
@@ -131,7 +131,7 @@ void Control::draw(Graphics &g, int left, int top, size_t layer) {
 		if (_border != BorderType::None) drawBorder(g, left, top, layer);
 	}
 }
-
+//check if the control can get focus
 bool Control::canGetFocus() const {
 	return false;
 }
@@ -151,7 +151,7 @@ int Control::GetLeft() const {
 int Control::getTop() const {
 	return _position.Y;
 }
-
+//draw the border of the control
 void Control::drawBorder(Graphics& g, int x, int y, size_t layer) {
 	x += _position.X;
 	y += _position.Y;
