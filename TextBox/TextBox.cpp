@@ -83,7 +83,7 @@ void TextBox::keyDown(int code, char ch) {
 	case VK_RIGHT:
 	case VK_NUMPAD6:
 		temp = getText();
-		if (_cursor.X< this->_position.X + this->getText().length())
+		if (_cursor.X< this->_position.X + this->getText().length()+1)
 		{
 			coord.X = _cursor.X + 1;
 			_cursor = (coord);
